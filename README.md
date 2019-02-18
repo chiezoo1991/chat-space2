@@ -13,16 +13,15 @@ Things you may want to cover:
 
 * Database creation
 
-## membersテーブル
+## group_usersテーブル
+<!-- membersテーブルから変更して中間テーブルにしました -->
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
-- belongs_to :messeages
+- has_many :messeages
 
 ## usersテーブル
 |Column|Type|Options|
@@ -56,8 +55,7 @@ Things you may want to cover:
 |image|text|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
-- belongs_to :group
+- belongs_to :group_user
 
 * Database initialization
 
