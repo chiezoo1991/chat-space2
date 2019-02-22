@@ -13,7 +13,7 @@ Things you may want to cover:
 
 * Database creation
 
-## group_usersテーブル
+## group_userテーブル
 <!-- membersテーブルから変更して中間テーブルにしました -->
 |Column|Type|Options|
 |------|----|-------|
@@ -21,7 +21,8 @@ Things you may want to cover:
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :messeages
+- belongs_to :user
+- belongs_to :group
 
 ## usersテーブル
 |Column|Type|Options|
@@ -31,19 +32,22 @@ Things you may want to cover:
 |password|string|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
+<!-- throughオプションによりgroup_users経由でgroupsにアクセス -->
+- has_many :group_users
+- has_many :groups, through: :group_users
 - has_many :messeages
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_names|string|null: false, foreign_key: true|
+|group_name|string|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
+<!-- throughオプションによりgroup_users経由でusersにアクセス -->
+- has_many :group_users
+- has_many :users, through: :group_users
 - has_many :messeages
-- has_many :users
-- has_many :members
 
 ## messeagesテーブル
 |Column|Type|Options|
@@ -52,10 +56,11 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 |body|text|null: false, foreign_key: true|
 |timestamps|datetime|null: false, foreign_key: true|
-|image|text|null: false, foreign_key: true|
+|image|text|foreign_key: true|
 
 ### Association
-- belongs_to :group_user
+- belongs_to :user
+- belongs_to :group
 
 * Database initialization
 
