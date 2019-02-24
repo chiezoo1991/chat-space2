@@ -1,0 +1,7 @@
+$mf_color : #ef7f1a;
+#hoge{
+  border: 1px solid $mf_color;
+  .fuga{
+    color: $mf_color;
+  }
+}
