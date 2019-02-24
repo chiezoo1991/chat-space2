@@ -15,21 +15,23 @@ Things you may want to cover:
 
 ## group_userテーブル
 <!-- membersテーブルから変更して中間テーブルにしました -->
+<!-- referencesで定義し直しました -->
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|references|integer|null: false, foreign_key: true|
+|references|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - belongs_to :group
 
 ## usersテーブル
+<!-- 外部キーを定義していたので削除 -->
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
-|mail|string|null: false, foreign_key: true|
-|password|string|null: false, foreign_key: true|
+|name|string|null: false|
+|mail|string|null: false|
+|password|string|null: false|
 
 ### Association
 <!-- throughオプションによりgroup_users経由でgroupsにアクセス -->
@@ -38,10 +40,10 @@ Things you may want to cover:
 - has_many :messeages
 
 ## groupsテーブル
+<!-- group name→nameに変更、user_idカラムを削除 -->
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|name|string|null: false, foreign_key: true|
 
 ### Association
 <!-- throughオプションによりgroup_users経由でusersにアクセス -->
@@ -50,12 +52,13 @@ Things you may want to cover:
 - has_many :messeages
 
 ## messeagesテーブル
+<!-- null:falseを削除 -->
+<!-- timestampsを削除 -->
 |Column|Type|Options|
 |------|----|-------|
-|group_id|string|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|body|text|null: false, foreign_key: true|
-|timestamps|datetime|null: false, foreign_key: true|
+|references|string|foreign_key: true|
+|references|integer|foreign_key: true|
+|body|text|foreign_key: true|
 |image|text|foreign_key: true|
 
 ### Association
