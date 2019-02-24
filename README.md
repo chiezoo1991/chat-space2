@@ -18,8 +18,8 @@ Things you may want to cover:
 <!-- referencesで定義し直しました -->
 |Column|Type|Options|
 |------|----|-------|
-|user|integer|null: false, foreign_key: true|
-|group|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -41,9 +41,10 @@ Things you may want to cover:
 
 ## groupsテーブル
 <!-- group name→nameに変更、user_idカラムを削除 -->
+<!-- 無駄な外部キーを削除 -->
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
 <!-- throughオプションによりgroup_users経由でusersにアクセス -->
@@ -56,8 +57,8 @@ Things you may want to cover:
 <!-- timestampsを削除 -->
 |Column|Type|Options|
 |------|----|-------|
-|user|string|foreign_key: true|
-|group|integer|foreign_key: true|
+|user|references|foreign_key: true|
+|group|references|foreign_key: true|
 |body|text||
 |image|text||
 
