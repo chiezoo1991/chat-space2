@@ -18,8 +18,8 @@ Things you may want to cover:
 <!-- referencesで定義し直しました -->
 |Column|Type|Options|
 |------|----|-------|
-|references|integer|null: false, foreign_key: true|
-|references|integer|null: false, foreign_key: true|
+|user|integer|null: false, foreign_key: true|
+|group|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -56,8 +56,8 @@ Things you may want to cover:
 <!-- timestampsを削除 -->
 |Column|Type|Options|
 |------|----|-------|
-|references|string|foreign_key: true|
-|references|integer|foreign_key: true|
+|user|string|foreign_key: true|
+|group|integer|foreign_key: true|
 |body|text|foreign_key: true|
 |image|text|foreign_key: true|
 
