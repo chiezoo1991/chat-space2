@@ -2,6 +2,6 @@ class MesseagesController < ApplicationController
   def index
   end
 
-  def new
+  def create
   end
 end

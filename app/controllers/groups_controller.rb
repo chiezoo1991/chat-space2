@@ -1,5 +1,4 @@
 class GroupsController < ApplicationController
-
   def new
   end
 
@@ -12,4 +11,3 @@ class GroupsController < ApplicationController
   def update
   end
 end
-
