@@ -9,7 +9,8 @@
           = @group.name
         %ul.left-header__members
           Member：
-          = User.all.name
+          - @group.users.each do |user|
+            = user.name
           %li.member
       .right-header
         .right-header__button
