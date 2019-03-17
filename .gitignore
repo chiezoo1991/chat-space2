@@ -18,4 +18,3 @@
 public/uploads/*
 
 /CarrierWave
-config/secrets.yml
