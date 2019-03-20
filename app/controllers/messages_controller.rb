@@ -4,12 +4,17 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    respond_to do |format|
+      format.html
+      format.json { @new_messages = @messages.where('id > ?', params[:id]) }
+   end
   end
 
   def create
     @message = @group.messages.new(message_params)
     if @message.save
       respond_to do |format|
+        # htmlレスポンスの削除
       format.html { redirect_to group_messages_path(@group), notice: 'メッセージが送信されました' }
       format.json
       end
@@ -28,5 +33,7 @@ class MessagesController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+    # 時間を日本時間に修正
+    Time.zone = 'Tokyo'
   end
 end
