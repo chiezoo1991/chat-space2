@@ -36,7 +36,6 @@ $(document).on('turbolinks:load', function() {
       var html = buildHTML(message);
       $('.messages').append(html)
       $('.form__message').val('')
-      // resetメソッド使用
       $('.formsubmit').removeAttr('data-disable-with');
       $('.messeage').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       console.log(html);
