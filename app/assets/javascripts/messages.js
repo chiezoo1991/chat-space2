@@ -1,9 +1,8 @@
 $(document).on('turbolinks:load', function() {
   //テンプレートリテラル記法
    function buildHTML(message){
-    var addImage = '';
-    if (message.image.url) {
-      addImage = `<img src="${message.image.url}" class="lower-message__image">`;
+    // 三項演算子で記載しました
+    var addImage = (message.image.url !== null)? `<img src="${message.image.url}">`:'';
     }
     var html = `
         <div class="message" data-message-id="${message.id}">
@@ -36,11 +35,13 @@ $(document).on('turbolinks:load', function() {
       var html = buildHTML(message);
       $('.messages').append(html)
       $('.form__message').val('')
-      $('.form__submit').prop('disabled', false);
+      // resetメソッド使用
+      $('.form').reset(message);
+      $('.formsubmit').removeAttr('data-disable-with');
       $('.messeage').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      console.log(html);
     })
     .fail(function(message){
       alert('メッセージを入力してください');
   })
  })
-})
