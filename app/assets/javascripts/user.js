@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function() {
-  var search_list = $(".user-search-result");
+  var search_list = $("#user-search-result");
+  // #user-search-result→_form.html.hamlからくる。
 
   function appendUser(user) {
     var html = `<div class='chat-group-user clearfix' id='chat-group-user-${user.id}'>
@@ -25,6 +26,7 @@ $(document).on('turbolinks:load', function() {
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
+    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users',
