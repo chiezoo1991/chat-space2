@@ -43,5 +43,6 @@ $(document).on('turbolinks:load', function() {
     .fail(function(message){
       alert('メッセージを入力してください');
   })
+    return false;
  })
 })
