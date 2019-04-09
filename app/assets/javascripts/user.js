@@ -62,3 +62,4 @@ $(document).on('turbolinks:load', function() {
     $(`#chat-group-user-${id}`).remove();
   });
 });
+
