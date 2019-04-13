@@ -16,3 +16,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 public/uploads/*
+log/development.log
+tmp/pids/server.pid
+config/secrets.yml
