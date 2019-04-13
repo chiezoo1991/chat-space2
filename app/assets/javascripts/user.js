@@ -26,6 +26,10 @@ $(document).on('turbolinks:load', function() {
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
+<<<<<<< HEAD
+    console.log(input);
+=======
+>>>>>>> master
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -37,6 +41,10 @@ $(document).on('turbolinks:load', function() {
       if (users.length !== 0 && input.length !== 0) {
         users.forEach(function(user) {
           appendUser(user);
+<<<<<<< HEAD
+          console.log(input);
+=======
+>>>>>>> master
         });
       } else {
         appendNoUser("一致するユーザーはいません")
@@ -60,3 +68,7 @@ $(document).on('turbolinks:load', function() {
     $(`#chat-group-user-${id}`).remove();
   });
 });
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
