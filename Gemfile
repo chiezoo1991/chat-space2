@@ -67,5 +67,5 @@ gem 'mini_magick'
 gem 'rb-readline'
 
 group :production do
-  gem 'unicorn', '5.4.1'
+  gem 'unicorn'
 end
