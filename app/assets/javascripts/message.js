@@ -33,9 +33,9 @@ $(document).on('turbolinks:load', function() {
       $('.messages').append(html)
       $('.form__message').val('')
       $('.formsubmit').removeAttr('data-disable-with');
+      $('form')[0].reset();
       var speed = 500;
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-      $('form')[0].reset();
     })
     .fail(function(message){
       alert('メッセージを入力してください');
@@ -58,9 +58,6 @@ var reloadMessages = function() {
         $(".messages").animate({scrollTop: $(".messages")[0].scrollHeight+100}, "fast");
       })
       })
-    .fail(function() {
-      console.log('error');
-    });
   }
     setInterval(reloadMessages, 5000);
 });
