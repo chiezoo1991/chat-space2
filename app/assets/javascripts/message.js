@@ -30,8 +30,6 @@ $(document).on('turbolinks:load', function() {
   })
     .done(function(message) {
       var html = buildHTML(message);
-      $('.messages').append(html)
-      $('.form__message').val('')
       $('.formsubmit').removeAttr('data-disable-with');
       $('form')[0].reset();
       var speed = 500;
